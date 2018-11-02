@@ -154,7 +154,7 @@ def compute_mapk(distances, labels, k, workers=None):
 
     # Fetch the index of the lowest `max_count` (k) elements
     t = time.time()
-    ind = np.argpartition(distances, max_count)[:, :max_count]
+    ind = np.argpartition(distances, max_count-1)[:, :max_count]
     # Find the sorting sequence according to the shortest distances selected from `ind`
     ssd = np.argsort(np.array(distances)[np.arange(distances.shape[0])[:, None], ind], axis=1)
     # Consequently sort `ind`
